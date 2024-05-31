@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, SafeAreaView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-const Header = () => {
+const Header = (ref: any) => {
   const dummyFunction = () => {};
   const insets = useSafeAreaInsets();
   const [safeAreaHeight, setSafeAreaHeight] = useState(0);

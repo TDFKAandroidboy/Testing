@@ -34,15 +34,18 @@ const Header = () => {
   }, [insets]);
 
   return (
-    <View style={[styles.header, { marginTop: safeAreaHeight }]}>
-      <Pressable onPress={() => console.log("pressed")}>
+    <View style={[styles.header]}>
+      <Pressable
+        onPress={() => console.log("pressed")}
+        style={styles.headerText}
+      >
         <Text>Header</Text>
       </Pressable>
     </View>
   );
 };
 
-const Example = () => {
+const ExampleNoSafeArea = () => {
   const insets = useSafeAreaInsets();
   const [safeAreaHeight, setSafeAreaHeight] = useState(0);
   useEffect(() => {
@@ -55,7 +58,6 @@ const Example = () => {
 
   return (
     <>
-      <View style={[styles.abs, { height: safeAreaHeight }]}></View>
       <Tabs.Container
         renderHeader={Header}
         headerHeight={HEADER_HEIGHT}
@@ -101,13 +103,11 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "#2196f3",
   },
-  abs: {
-    top: 0,
-    position: "absolute",
-    zIndex: 1,
-    width: "100%",
-    backgroundColor: "white",
+  headerText: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
-export default Example;
+export default ExampleNoSafeArea;
